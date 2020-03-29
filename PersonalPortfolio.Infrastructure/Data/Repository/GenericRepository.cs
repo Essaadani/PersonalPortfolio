@@ -18,7 +18,7 @@ namespace PersonalPortfolio.Infrastructure.Data.Repository
         }
         public void Delete(object id)
         {
-            T existing = table.Find(id);
+            T existing = GetById(id);
             table.Remove(existing);
         }
 
