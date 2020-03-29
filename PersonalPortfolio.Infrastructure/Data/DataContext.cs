@@ -15,5 +15,6 @@ namespace PersonalPortfolio.Infrastructure.Data
 
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<Owner> Owner { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

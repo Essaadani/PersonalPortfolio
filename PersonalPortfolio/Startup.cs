@@ -9,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PersonalPortfolio.Core;
 using PersonalPortfolio.Infrastructure.Data;
+using PersonalPortfolio.Infrastructure.Data.UnitOfWork;
 
 namespace PersonalPortfolio
 {
@@ -30,6 +32,9 @@ namespace PersonalPortfolio
             {
                 options.UseSqlServer(_configuration.GetConnectionString("PortfolioDB"));
             });
+
+            services.AddScoped<IUnitOfWork<Portfolio>, UnitOfWork<Portfolio>>();
+            services.AddScoped<IUnitOfWork<Owner>, UnitOfWork<Owner>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
